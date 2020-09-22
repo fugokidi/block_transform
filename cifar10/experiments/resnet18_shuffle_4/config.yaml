@@ -1,0 +1,33 @@
+architecture: resnet18
+
+data_path: ~/.fastai/data
+ckpt_path: ./
+ckpt_name: resnet18_shuffle_4
+
+mean: !!python/tuple [0.4914, 0.4822, 0.4465]
+std: !!python/tuple [0.2471, 0.2435, 0.2616] # before converting to tensors
+# std: !!python/tuple [0.2023, 0.1994, 0.2010] # after converting to tensors
+
+epochs: 200
+batch_size: 128
+eval_freq: 100
+workers: 2
+
+# optimizer
+lr_max: 0.2
+lr_min: 0.0
+momentum: 0.9
+weight_decay: 0.0005
+opt_level: O1 # 'O0' = FP32, 'O1' = Mixed precision, 'O2' = Almost FP16 Mixed precision
+loss_scale: 1.0 # 'dynamic' = adaptively adjust loss scale over time
+master_weights: False
+
+# learning rate scheduler
+lr_schedule: cyclic # multistep
+
+# Defense
+defense: Shuffle
+block_size: 4
+height: 32
+width: 32
+password: password
