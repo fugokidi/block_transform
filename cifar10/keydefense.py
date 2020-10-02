@@ -137,7 +137,7 @@ class FFX(BlockTransform):
         relookup = torch.from_numpy(relookup)
         return lookup, relookup
 
-   def forward(self, X, decrypt=False):
+    def forward(self, X, decrypt=False):
         # uncomment the following during training
         # X = self.denormalize(X)
         X = self.segment(X)
