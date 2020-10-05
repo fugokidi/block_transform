@@ -1,6 +1,6 @@
 # Block-wise Image Transformation with Secret Key for Adversarially Robust Defense
 
-This repository is the official implementation of [Block-wise Image Transformation with Secret Key for Adversarially Robust Defense](). 
+This repository is the official implementation of [Block-wise Image Transformation with Secret Key for Adversarially Robust Defense](http://arxiv.org/abs/2010.00801). 
 
 Training scripts are mostly adapted from [fast adversarial training](https://github.com/locuslab/fast_adversarial)
 
