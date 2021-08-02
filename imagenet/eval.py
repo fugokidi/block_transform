@@ -214,7 +214,7 @@ def main():
         adv_defense = globals()[config.defense](config).cuda()
         adv_net = nn.Sequential(adv_defense, norm_layer, model).cuda()
         adversary = CarliniWagnerL2Attack(
-                adv_net, 10, confidence=0, targeted=False,
+                adv_net, 1000, confidence=0, targeted=False,
                 learning_rate=0.01, binary_search_steps=9,
                 max_iterations=1000,
                 clip_min=0.0, clip_max=1.0)
@@ -222,7 +222,7 @@ def main():
 
     elif config.attack == 'ead':
         adversary = ElasticNetL1Attack(
-                adv_net, 10, confidence=0, targeted=False,
+                adv_net, 1000, confidence=0, targeted=False,
                 learning_rate=0.01, binary_search_steps=9,
                 max_iterations=1000,
                 clip_min=0.0, clip_max=1.0)
